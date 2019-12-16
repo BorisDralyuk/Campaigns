@@ -1,0 +1,19 @@
+<div class="form-content">
+	<h3>{{campaign.name}}</h3>
+	<hr>
+	<p>
+		<span><strong>{{titleBudget}}</strong> {{campaign.budget | currency:'USD' }}</span>
+	</p>
+	<p>
+		<span><strong>{{titleBid}}</strong> {{campaign.bid | currency:'USD' }}</span>
+	</p>
+	<p>
+		<span><strong>{{titleSD}}</strong> {{campaign.startDate | date: 'MMM dd,yyyy' }}</span>
+	</p>
+	<p>
+		<span><strong>{{titleED}}</strong> {{campaign.endDate | date: 'MMM dd,yyyy' }}</span>
+	</p>
+	<p>
+		<span><strong>{{titleDevices}}</strong> {{ campaign.devices.join(', ') }}</span>
+	</p>
+</div>

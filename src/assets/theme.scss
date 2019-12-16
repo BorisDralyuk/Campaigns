@@ -1,0 +1,243 @@
+
+$primary-color: #353b5d;
+$primary-color-middle: #1f37bf;
+$primary-color-lite: #3f51b5;
+
+$error-background-color: #e2a690;
+$error-text-color: red;
+$success-background-color: #a5e08a;
+$success-text-color: green;
+
+$btn-new-color: #3fb559;
+$white: #fff;
+
+$gray: #ccc;
+$gray-dark: #848484;
+$lite-gray: #fdfdfd;
+$link-active: #9da8e6;
+
+%footer-st{
+	display: flex;
+  background-color: $lite-gray;
+	color: $primary-color-middle;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background-color: $lite-gray; }
+
+//----------------------------------------
+.error-snackbar {
+	 position: absolute !important;
+	 background-color: $error-background-color;
+	 color: $error-text-color;
+}
+
+.success-snackbar {
+	 position: absolute !important;
+	 background-color: $success-background-color;
+	 color: $success-text-color;
+}
+
+.step-content{
+	width: 100vw;
+}
+
+.block-content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-content {
+  min-width: 150px;
+  max-width: 500px;
+	width: 100%;
+	margin: 100px;
+	span{
+		color: $gray-dark;
+	}
+}
+
+.form-field {
+  width: 100%;
+}
+
+.icon-caption{
+	color:$primary-color-lite
+}
+
+
+.mat-datepicker-toggle-default-icon{
+	color: $primary-color-lite
+}
+
+//--------------------------- auth 5
+
+.navbar{
+	display: flex;
+	justify-content: space-between;
+	background-color: $primary-color;
+}
+.navbar-content{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 5px;
+	color: $white;
+	a{
+	  margin-left: 20px;
+	  font-size: large;
+	};
+	a.active { 
+		color: $link-active;
+	}
+}
+
+.brand-logo {
+	text-decoration: none;
+	color: $white;
+}
+
+//------btn
+
+.mat-btn-success {
+    background-color: $primary-color-lite;
+		color: $white;
+		margin-top: 30px;
+		span {
+			color: $white;
+		}
+
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid $white;
+  border-top-color: $primary-color;
+  animation: spinner .8s linear infinite;
+}
+
+//----------------------------------------- campaign-form
+.container{
+	margin: 30px;
+}
+
+h3{
+	color: $primary-color-lite;
+}
+
+//----------------------------------- campaign page
+.site-container{
+	height: 100vh;
+}
+
+.left-menu{
+	background-color: $primary-color;
+	padding: 20px;
+	.menu-content{
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			height: 100%;
+			a {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				color: $white;
+				margin: 20px;
+				text-decoration: none;
+				font-size: large;
+			};
+			a.active { 
+		    color: $link-active;
+	    }
+	}
+}
+
+//--------------------------- segment
+.chip-list {
+  width: 100%;
+}
+//------------------- stepper
+.stepper-container{
+	border: 1px solid $gray;
+}
+
+.footer-stepper-next{
+	@extend %footer-st;
+	justify-content: space-between;
+}
+
+.mat-campaign-submit{
+		background-color: $btn-new-color;
+		color: $white;
+}
+
+.mat-campaign-red{
+		background-color: $error-text-color;
+		color: $white;
+}
+
+.footer-stepper-start{
+  @extend %footer-st;
+	justify-content: flex-end;
+}
+
+//--------------------------- table
+table{
+	width: 100%;
+	tr {
+		margin: 10px 5px;
+	}
+	a:hover{
+		cursor: pointer;
+	}
+}
+.mat-elevation-z8{
+
+box-shadow: none;
+border: 1px solid $gray;
+}
+
+
+
+.table-header{
+	display: flex;
+	justify-content: space-between;
+	background-color: $lite-gray;
+	border-bottom: 1px solid $gray;
+	button {
+		margin: 15px;
+	}
+}
+
+.field-color{
+	font-weight: bold;
+	color: $primary-color-lite;
+}
+
+.mat-create {
+	border: 1px solid $primary-color-lite;
+	color: $primary-color-lite;
+	height: 35px;
+	margin-top: 15px;
+	margin-right: 30px;
+}
+
+.table-filter{
+	margin-left: 30px;
+}
+
+

@@ -1,0 +1,16 @@
+
+<app-loader *ngIf="loading"></app-loader>
+
+<div *ngIf="!loading" class="container">
+	<h3>{{ title }}</h3>
+	<app-stepper 	[campaign]="campaign" 
+								[alldevices]="alldevices"
+								(onName)="setName($event)"
+								(onBudget)="setBudget($event)"
+								(onBid)="setBid($event)"
+								(onStartDate)="setStartDate($event)"
+								(onEndDate)="setEndDate($event)"
+								(onDevices)="setDevices($event)"
+							 	(onSubmit)="onSubmit($event)"></app-stepper>
+</div>
+

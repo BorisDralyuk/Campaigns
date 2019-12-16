@@ -1,0 +1,12 @@
+<app-loader *ngIf="loading"></app-loader>
+
+<div *ngIf="!loading" class="container">
+	<h3>{{title}}</h3>
+	<app-table-campaigns *ngIf="!loading"  
+												[loading]="loading" 
+												[data]="data" 
+												[displayedColumns] = "displayedColumns"
+												(onEdit)="isEdit($event)"
+												(onCreate)="isCreate()"></app-table-campaigns>
+</div>
+

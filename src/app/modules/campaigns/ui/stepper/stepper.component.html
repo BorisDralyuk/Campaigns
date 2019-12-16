@@ -1,0 +1,45 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper class="stepper-container">
+
+	<mat-step [stepControl]="formTarget">
+		<ng-template matStepLabel>{{step_1}}</ng-template>
+		<div class="block-content">
+			<app-targeting 	class="step-content block-content" 
+											[form]="formTarget"
+											(name)="setName($event)" 
+											(budget)="setBudget($event)" 
+											(bid)="setBid($event)" 
+											(startdate)="setStartDate($event)" 
+											(enddate)="setEndDate($event)" ></app-targeting>
+		</div>
+		<div  class="footer-stepper-start">
+			<button mat-button matStepperNext>{{next}}</button>
+		</div>
+	</mat-step>
+
+	<mat-step [stepControl]="formSegment">
+		<ng-template matStepLabel>{{step_2}}</ng-template>
+		<div class="block-content">
+			<app-segment 	class="step-content block-content"
+										[alldevices]="alldevices"
+										[form]="formSegment"
+										(onDevices)="setDevices($event)"></app-segment>
+		</div>
+		<div class="footer-stepper-next">
+			<button mat-button matStepperPrevious>{{back}}</button>
+			<button mat-button matStepperNext>{{next}}</button>
+		</div>
+	</mat-step>
+
+	<mat-step>
+		<ng-template matStepLabel>{{step_3}}</ng-template>
+		<div class="block-content">
+			<app-summery class="step-content block-content"
+										[campaign]="campaign"
+									 ></app-summery>
+		</div>
+		<div  class="footer-stepper-next">
+			<button mat-button matStepperPrevious>{{back}}</button>
+			<button mat-button [color]="'campaign-submit'" (click)="handlerSubmit()">{{submit}}</button>
+		</div>
+	</mat-step>
+</mat-horizontal-stepper>

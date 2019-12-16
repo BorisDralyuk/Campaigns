@@ -1,0 +1,23 @@
+<mat-drawer-container class="site-container">
+	<mat-drawer mode="side" opened class="left-menu">
+		<div class="menu-content">
+			<div>
+				<a routerLink="/campaigns/new" routerLinkActive="active" >
+					<mat-icon aria-hidden="false">add</mat-icon>
+					<span class="nav-title">{{newCampaign}}</span>
+				</a>
+				<a routerLink="/campaigns/all" routerLinkActive="active">
+					<mat-icon aria-hidden="false">ballot</mat-icon>
+					<span class="nav-title">{{allCampaigns}}</span>
+				</a>
+			</div>
+			<a routerLink="/">
+				<mat-icon aria-hidden="false">power_settings_new</mat-icon>
+				<span class="nav-title">{{logout}}</span>
+			</a>
+		</div>
+	</mat-drawer>
+	<mat-drawer-content>
+		<router-outlet></router-outlet>
+	</mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,64 @@
+
+<div class="mat-elevation-z8">
+	<div class="table-header">
+		<mat-form-field class="table-filter">
+			<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+		</mat-form-field>
+		<button mat-stroked-button [color]="'create'" (click)="create()">{{btnCreate}}</button>
+	</div>
+
+	<table mat-table [dataSource]="dataSource">
+		<!-- $key Column -->
+		<ng-container matColumnDef="$key">
+			<th mat-header-cell *matHeaderCellDef> </th>
+			<td mat-cell *matCellDef="let element"> <span hidden="true">{{element.$key}}</span></td>
+		</ng-container>
+
+		<!-- Name Column -->
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef> Name </th>
+			<td mat-cell *matCellDef="let element"> <span class="field-color">{{element.name}}</span> </td>
+		</ng-container>
+
+		<!-- Start Date Column -->
+		<ng-container matColumnDef="startDate">
+			<th mat-header-cell *matHeaderCellDef> Start Date </th>
+			<td mat-cell *matCellDef="let element"> {{element.startDate | date: 'dd.MM.yyyy' }} </td>
+		</ng-container>
+
+		<!-- Devices Column -->
+		<ng-container matColumnDef="devices">
+			<th mat-header-cell *matHeaderCellDef> Devices </th>
+			<td mat-cell *matCellDef="let element"> {{element.devices.join(',')}} </td>
+		</ng-container>
+		<!-- End Date Column -->
+		<ng-container matColumnDef="endDate">
+			<th mat-header-cell *matHeaderCellDef> End Date </th>
+			<td mat-cell *matCellDef="let element"> {{element.endDate | date: 'dd.MM.yyyy' }} </td>
+		</ng-container>
+		<!-- Budget Column -->
+		<ng-container matColumnDef="budget">
+			<th mat-header-cell *matHeaderCellDef> Budget </th>
+			<td mat-cell *matCellDef="let element"> {{element.budget | currency:'USD' }} </td>
+		</ng-container>
+		<!-- Bid Column -->
+		<ng-container matColumnDef="bid">
+			<th mat-header-cell *matHeaderCellDef> Bid </th>
+			<td mat-cell *matCellDef="let element"> {{element.bid | currency:'USD' }} </td>
+		</ng-container>
+		<!-- Edit -->
+		<ng-container matColumnDef="edit">
+			<th mat-header-cell *matHeaderCellDef> </th>
+			<td mat-cell *matCellDef="let element">
+				<a (click)="edit(element.$key)" class="icon-caption">
+					<mat-icon aria-hidden="false">edit</mat-icon>
+				</a>
+			</td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+
+	<mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+</div>

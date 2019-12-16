@@ -1,0 +1,34 @@
+<form [formGroup]="form" class="form-content">
+	<p>
+		<mat-form-field class="chip-list">
+			<mat-chip-list #chipList aria-label="device selection">
+				<mat-chip *ngFor="let device of selectedevices" 
+									[selectable]="selectable" 
+									[removable]="removable" 
+									(removed)="remove(device)">
+						{{device}}
+						<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+				</mat-chip>
+				<input 	placeholder="Devices" 
+								#deviceInput 
+								formControlName="devices"
+								#trigger="matAutocompleteTrigger"  
+								[matAutocomplete]="auto" 
+								readonly 
+								(focus)="focus()"
+								[matChipInputFor]="chipList">
+				<mat-error *ngIf="form.get('devices').invalid && form.get('devices').touched">
+					<mat-error *ngIf="form.get('devices').errors['devicesEmpty']">
+						{{errorDevicesRequired}}
+					</mat-error>
+				</mat-error>
+			</mat-chip-list>
+
+			<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+				<mat-option *ngFor="let device of alldevices " [value]="device">
+					{{device}}
+				</mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+	</p>
+</form>

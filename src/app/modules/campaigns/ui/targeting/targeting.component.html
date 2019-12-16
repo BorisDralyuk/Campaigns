@@ -1,0 +1,88 @@
+<form [formGroup]="form" class="form-content">
+	<p>
+		<mat-form-field class="form-field">
+			<input 	matInput 
+							placeholder="Compaign name" 
+							formControlName="name" 
+							(input)="changeName($event.target.value)">
+			<mat-icon matSuffix class="icon-caption">account_balance</mat-icon>
+				<mat-error *ngIf="form.get('name').invalid && form.get('name').touched">
+					<mat-error *ngIf="form.get('name').errors['required']">
+						{{errorNameReruired}}
+					</mat-error>
+				</mat-error>
+		</mat-form-field>
+	</p>
+	<p>
+		<mat-form-field class="form-field">
+			<input 	matInput 
+							placeholder="Daily Budget" 
+							formControlName="budget" 
+							type="number" 
+							class="example-right-align" 
+							(input)="changeBudget($event.target.value)">
+			<span matPrefix class="icon-caption">
+				<mat-icon matSuffix class="icon-caption">monetization_on</mat-icon>&nbsp;
+			</span>
+			<mat-error *ngIf="form.get('budget').invalid && form.get('budget').touched">
+				<mat-error *ngIf="form.get('budget').errors['required']" >
+					{{errorBudgetReruired}}
+				</mat-error>
+				<mat-error *ngIf="form.get('budget').errors['maxBudget'] ">
+					{{errorBudgetCount}}
+				</mat-error>
+			</mat-error>
+		</mat-form-field>
+	</p>
+	<p>
+		<mat-form-field class="form-field">
+			<input 	matInput 
+							placeholder="Bid (Maximum CPC)" 
+							formControlName="bid" 
+							type="number" 
+							class="example-right-align" 
+							(input)="changeBid($event.target.value)">
+			<span matPrefix class="icon-caption">
+				<mat-icon matSuffix class="icon-caption">monetization_on</mat-icon>&nbsp;
+			</span>
+			<mat-error *ngIf="form.get('bid').invalid && form.get('bid').touched">
+				<mat-error *ngIf="form.get('bid').errors['required']">
+					{{errorBidReruired}}
+				</mat-error>
+			</mat-error>
+		</mat-form-field>
+	</p>
+	<p>
+		<mat-form-field class="form-field">
+			<input matInput [matDatepicker]="dpStart" 
+											formControlName="startDate" 
+											placeholder="Start date (yyyy-mm-dd)" 
+											(keydown)="false" 
+											(focus)="dpStart.open()" 
+											(click)="dpStart.open()" 
+											(dateChange)="changeStartDate($event)">
+			<mat-datepicker-toggle matSuffix [for]="dpStart"></mat-datepicker-toggle>
+			<mat-datepicker #dpStart disabled="false"></mat-datepicker>
+			<mat-error *ngIf="startDateInvalid">
+					{{errorDateValid}}
+			</mat-error>
+		</mat-form-field>
+	</p>
+	<p>
+		<mat-form-field class="form-field">
+			<input matInput [matDatepicker]="dpEnd" 
+											formControlName="endDate" 
+											placeholder="End date (yyyy-mm-dd)" 
+											(keydown)="false" 
+											(focus)="dpEnd.open()" 
+											(click)="dpEnd.open()" 
+											(dateChange)="changeEndDate($event)">
+			<mat-datepicker-toggle matSuffix [for]="dpEnd"></mat-datepicker-toggle>
+			<mat-datepicker #dpEnd disabled="false"></mat-datepicker>
+			<mat-error *ngIf="endDateInvalid">
+					{{errorDateValid}}
+			</mat-error>
+		</mat-form-field>
+	</p>
+
+</form>

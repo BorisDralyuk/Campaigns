@@ -1,0 +1,16 @@
+<mat-toolbar class="navbar">
+	<a routerLink="/" class="brand-logo">{{logo}}</a>
+	<mat-nav-list class="navbar-content">
+		<a  routerLink="/login" routerLinkActive="active">
+			{{login}}
+		</a>
+
+		<a  routerLink="/register" routerLinkActive="active">
+			{{register}}
+		</a>
+	</mat-nav-list>
+</mat-toolbar>
+
+<div class="block-content">
+	<router-outlet></router-outlet>
+</div>
